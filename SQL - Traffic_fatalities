@@ -1,0 +1,53 @@
+SELECT 
+ -- state_number, 
+  state_name, 
+ -- consecutive_number, 
+  county, 
+  city, 
+  national_highway_system, 
+  land_use_name, 
+  functional_system, 
+  functional_system_name, 
+  ownership, 
+  ownership_name, 
+  route_signing, 
+  route_signing_name, 
+  trafficway_identifier, 
+  latitude, 
+  longitude, 
+  first_harmful_event, 
+  first_harmful_event_name, 
+  relation_to_junction_within_interchange_area, 
+  relation_to_junction_specific_location, 
+  relation_to_junction_specific_location_name, 
+  type_of_intersection, 
+  work_zone, 
+  relation_to_trafficway, 
+  relation_to_trafficway_name, 
+  light_condition, 
+  light_condition_name, 
+  atmospheric_conditions, 
+  atmospheric_conditions_name, 
+  school_bus_related, 
+  minute_of_arrival_at_scene, 
+  minute_of_ems_arrival_at_hospital, 
+  number_of_fatalities, 
+  number_of_drunk_drivers, 
+  FORMAT_DATETIME("%d-%b-%Y", timestamp_of_crash) AS Date, 
+  FORMAT_DATETIME("%I%M", timestamp_of_crash) AS TimeKey 
+FROM 
+  (
+    (
+      SELECT 
+        * 
+      FROM 
+        `bigquery-public-data.nhtsa_traffic_fatalities.accident_2015`
+    ) 
+    UNION ALL 
+      (
+        SELECT 
+          * 
+        FROM 
+          `bigquery-public-data.nhtsa_traffic_fatalities.accident_2016`
+      )
+  )
