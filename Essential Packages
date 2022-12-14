@@ -1,0 +1,20 @@
+pip install --upgrade pip
+Pip install Numpy
+pip install pandas
+pip install sklean
+pip install tensorflow
+python -m pip install scipy
+pip install Theano
+pip install Matplotlib
+pip install Seaborn
+pip install Seaborn
+pip install Ggplot
+pip install Altair
+pip install pandas-profiling
+pip install sweetviz
+pip install pandas-visual-analysis
+pip install dtale
+pip install autoviz
+pip install keras
+pip install torch
+pip install cloud-sql-python-connector
