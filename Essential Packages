@@ -2,6 +2,7 @@ pip install --upgrade pip
 Pip install Numpy
 pip install pandas
 pip install sklean
+pip install xgboost
 pip install tensorflow
 python -m pip install scipy
 pip install Theano
