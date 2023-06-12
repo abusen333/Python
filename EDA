@@ -1,0 +1,22 @@
+def set_frame_style(df, caption=""):
+    """Helper function to set dataframe presentation style.
+    """
+    return df.style.background_gradient(cmap='Blues').set_caption(caption).set_table_styles([{
+    'selector': 'caption',
+    'props': [
+        ('color', '#ADD8E6'),
+        ('font-size', '18px'),
+        ('font-weight','bold')
+    ]}])
+
+def check_data(data, title):
+    cols = data.columns.to_list()
+    display(set_frame_style(data[cols].head(),f'{title}: First 5 Rows Of Data'))
+    display(set_frame_style(data[cols].describe(),f'{title}: Summary Statistics'))
+    display(set_frame_style(data[cols].nunique().to_frame().rename({0:'Unique Value Count'}, axis=1).transpose(), f'{title}: Unique Value Counts In Each Column'))
+    display(set_frame_style(data[cols].isna().sum().to_frame().transpose(), f'{title}:Columns With Nan'))
+    
+check_data(df_train, 'Train data')
+print('-'*100)
+check_data(df_test, 'Test data')
+print('-'*100)
